@@ -1,13 +1,12 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/dammingerdai/damingerdai-fiber-api/internal/routers"
+)
 
 func main() {
-	app := fiber.New()
+	app := routers.NewRouter()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("hello world")
-	})
 	app.Listen(":3000")
 
 }
