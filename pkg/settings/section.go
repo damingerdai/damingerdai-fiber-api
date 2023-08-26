@@ -4,12 +4,9 @@ var sections = make(map[string]any)
 
 type ServerSettingS struct {
 	RunMode  string
-	HttpPort string
+	HttpPort int
 }
-
 
 type AppSettingS struct {
 	Server ServerSettingS
 }
-
-

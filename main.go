@@ -1,9 +1,8 @@
 package main
 
 import (
-	"log"
-
-	"github.com/dammingerdai/damingerdai-fiber-api/internal/routers"
+	"github.com/dammingerdai/damingerdai-fiber-api/global"
+	"github.com/dammingerdai/damingerdai-fiber-api/internal/server"
 	"github.com/dammingerdai/damingerdai-fiber-api/pkg/settings"
 )
 
@@ -14,13 +13,13 @@ func init() {
 	if err != nil {
 		panic(err.Error())
 	}
-	log.Println(appSetting)
+	global.AppSetting = appSetting
 }
 
 func main() {
-	app := routers.NewRouter()
+	app := server.NewServer(global.AppSetting.Server)
 
-	app.Listen(":3000")
+	app.Run()
 
 }
 
